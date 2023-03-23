@@ -1,0 +1,144 @@
+__________________________________________________________________________
+
+- End of Active Feature Development - Maintenance Only
+__________________________________________________________________________
+
+Version 5.1F - 101518 [Final Feature-Development Release]
+
+- Upstream to 4.4.159
+- Break Huawei's D.U.B.A.I. functionality
+- Optimize build for big.LITTLE (GCC 5.5 only)
+- Rebase EAS to AOSP
+- Implement Schedutil Governor
+- Port Blu_Schedutil from OP6 Blu_Spark Kernel
+- Deprecate Sched Governor
+- Fix and Implement WALT
+- Add Tuned Zen I/O Scheduler
+- Update Wireguard to latest (Automatic Fetch Script Added)
+
+---------------------------------------------------
+History re-organized at this point and Branch moved
+---------------------------------------------------
+
+Version 3.0R - 092018
+
+- Upgrade to Linaro GCC 5.5-2017.10 (Keep Linaro GCC 4.9 for CN versions)
+- Upstreamed to 4.4.103 - Kernel now on par with stock K970
+- Increase Buffer on GPUFreq driver
+- Port HiSi JPEG Processing Engine
+- Update Wireguard to 0.0.20180910
+
+Version 2.5R - 081718 [GPU Supercharger Edition]
+
+- GPU - Reduce TLB Pressure and Prevent Memory Fragmentation
+- GPU - Port and Optimize HiSilicon GPUFreq Driver and FHSS GPU Feature
+- GPU - Re-Tune Scene Aware and Disable D.U.B.A.I. Analytics on GPU Govs
+- Optimize Kernel by including Sched Energy Costs into CPU DTSI file
+- Update Wireguard to 0.0.20180809
+- Optimize Async I/O for SSD Storage
+- Disable HiSi PerfHub
+- Minor FS Optimization
+- Initramfs Optimizations
+- Minor Memory Fragmentation Optimization
+
+Version 2.0R - 062918 [Major Milestone Update]
+
+- Upstreamed to 4.4.73
+- New Optimal Timer Frequency - 156HZ Set as Default
+- Go Tickless - Enable Full Dynticks System
+- Power Efficient Workqueues can now be toggled
+- Revert CPU DDR Link Enabling and other HiSi CPU Functions
+- Keep Kirin Specific SMP Flow but move to ARM big.LITTLE CPUFreq Driver
+- Reduce Kernel Max Wakelocks down by 90% relative to Stock
+- Minor RAM and DevFreq Tweaks
+- GPU Scene_Aware Tuned for Power Efficiency
+- Minor Log Spam on CPU's Silenced
+- Reduce Timeout to Stop Processes and Enter Sleep
+- Optimized Sound Output Gains and Eliminate Rates below 16Khz
+- Implement UKSM 0.1.2.6
+- Upgrade SchedTune Boost to v3
+- Update Wireguard to 0.0.20180620
+
+---------------------------------------------------
+History re-organized at this point and Branch moved
+---------------------------------------------------
+
+Version 1.7.1R - 060218 [Minor Update]
+
+- Include zxz0O0's Fix for Capacitive Buttons
+- Update Wireguard to 0.0.20180531
+
+Version 1.7R - 052818
+
+- Upstream to 4.4.63
+- Implement USB Fast Charging Capability
+- Minor Efficiency Tweaks to Sched, SchedTune CPU Boost and LMK
+- Removed Sociopath TCP Algorithm (Not needed, performance similar to Westwood)
+- Update Wireguard to 0.0.20180524
+- Make Wireguard Built-In instead of Module
+
+---------------------------------------------------
+History re-organized at this point and Branch moved
+---------------------------------------------------
+
+Version 1.6R - 051918
+
+- Upstream to 4.4.52
+- Add FRandom RNG Driver
+- Add Dynamic SchedTune Boost
+- Update Westwood TCP Algorithm
+- Add Boeffla Wakelock Blocker
+- Fix for possible Entropy depletion
+- Update Wireguard to 0.0.20180519
+
+Version 1.5R - 051018
+
+- Add blu_active CPU Governor and CAF Boost driver for non-EAS users
+- Enable CPUFreq DDR Link
+- Enable HiSilicon Low Temp CPU Frequency Set
+- Timer Frequency set to 300HZ
+- Powersave, Userspace and Conservative CPU Govs no longer available
+- Automatic Process Group Scheduling Support
+- SMT Scheduler Support for Multi-Threading Optimization
+- Disable Scheduler Logging to reduce Overhead
+- GPU Scene Aware - Battery friendly balanced GPU management. OpenGL may suffer, Vulkan is favored.
+- Add Powersave GPU Gov for users that really don't need any GPU performance
+- Maple I/O Scheduler tuned and set to default
+- ZRam Disabled
+- Entropy Tuned for improved performance
+- Add FSync Toggle capability
+- Disable CRC checks
+- NTFS File System R/W Support
+- Enable CleanCache Driver
+- Skip Kernel Sync on Suspend
+- Disabled Huawei Root Scanner
+- Add Sociopath TCP Algorithm
+- Update Wireguard to version 0.0.20180420
+
+Version 1.2R - 050418
+
+- Add Maple and Tuned SIOPlus I/O Schedulers
+- Tuned CFQ and Deadline I/O Schedulers
+- Updated Sched Governor to Kirin970 .103 Source
+- Updated CPUFreq Drivers and Governors to Kirin970 .103 Source
+
+Version 1.1R - 042618
+
+- [FIX] Knuckle Gestures now work
+- Reverted Huawei Max Freq. Detection for Increased Granularity on "big" Cluster
+- Sched Governor now tuned for faster Freq Ramp-Down
+
+Version 1.0R - 041218
+
+- Linaro AArch64 GCC 4.9 2017.01 (ARMv8,A53 Optimized)
+- UnderVolt CPU/GPU by @nutcasev1.5
+- Activate built-in EAS and set "Sched" Governor as default
+- Enable Kirin Hotplug Flow for big.LITTLE
+- Enable Aggressive GPU Suspend on Low Frequencies
+- Deactivated Swap
+- Reduced Kernel Wakelocks by 50%
+- Set CFQ as Default I/O Scheduler
+- Renamed Interactive Gov to bypass EMUI Governor Overrides
+- Set Westwood as Default TCP Algorithm
+- Reactivated "setenforce" command
+- Added Wireguard VPN Capability
