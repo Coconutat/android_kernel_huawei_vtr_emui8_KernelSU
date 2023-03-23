@@ -22,8 +22,8 @@
 1. 不幸的是，这个内核不能切换SELinux的工作状态。如果切换就会导致KernelSU失效。所以我修改了/security/selinux/selinuxfs.c，在171行到174行添加了一些代码。
 2. SD卡无法读取，该说这个通用的问题么？我编译官方内核也是读取不了SD卡。刷回华为OTA包里就可以。
 3. GSI镜像将不再可用。不知为何，以前支持能开机可用的GSI系统也无法开机了，只能用原本的系统。
-  > 什么是GSI：[WIKI](https://github.com/phhusson/treble_experimentations/wiki/Frequently-Asked-Questions-%28FAQ%29)
-  > GSI镜像列表：[LIST](https://github.com/phhusson/treble_experimentations/wiki/Generic-System-Image-%28GSI%29-list)
+  > 什么是GSI：[WIKI](https://github.com/phhusson/treble_experimentations/wiki/Frequently-Asked-Questions-%28FAQ%29)  
+  > GSI镜像列表：[LIST](https://github.com/phhusson/treble_experimentations/wiki/Generic-System-Image-%28GSI%29-list)  
 ***
 # 创建者/贡献者：
 [JBolho](https://github.com/JBolho) / [Proto内核](https://github.com/JBolho/Proto)：提供了基础的内核。  
