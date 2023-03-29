@@ -7,7 +7,7 @@
  4. 完全屏蔽华为内核级别ROOT检查和扫描。 
  5. 激活了PTRACE特性。  
 ***  
-下载：
+# 下载：  
 [Github Release](https://github.com/Coconutat/android_kernel_huawei_vtr_KernelSU/releases/)  
 包含TWRP，自定义内核和原始内核。  
 ***  
