@@ -5,8 +5,18 @@
  2. 支持KernelSU
  3. 不能切换SELinux为强制模式。(强制为宽容模式。)
  4. 完全屏蔽华为内核级别ROOT检查和扫描。 
- 5. 激活了PTRACE特性。
-***
+ 5. 激活了PTRACE特性。  
+***  
+下载：
+[Github Release](https://github.com/Coconutat/android_kernel_huawei_vtr_KernelSU/releases/)  
+包含TWRP，自定义内核和原始内核。  
+***  
+# 刷写：  
+ 1. 刷入TWRP：`fastboot flash recovery_ramdisk huawei-vtr-al00-em8_0-twrp3.2.1-7to-recovery-8.5.25.img` 
+ 2. 进入TWRP，进入 **高级** ，选择 **移除DATA强制加密** ，刷入后，进入 **重启** ，**Recovery** ，之后重启进入TWRP后选择 **清除** ，***格式化DATA分区** ，格式化以后选择 **滑动恢复默认出厂**。  
+ 3. 把 **Proto8_v5.1FCN_MOD_KSU_XXXX.zip** 的内核刷写包复制进手机存储，然后选择 **安装** ，找到你存放内核刷写包的位置，选择刷写包，然后刷入即可。  
+ > XXXX是版本号。
+***   
 # 自行构建：  
 需求：  
  1. Ubuntu 16.04 x86_64 / Ubuntu 20.04 x86_64  
