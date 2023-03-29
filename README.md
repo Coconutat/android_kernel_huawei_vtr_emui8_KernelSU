@@ -1,5 +1,8 @@
 # 华为P10支持KernelSU自定义内核EMUI 8版本  
 ***
+## EMUI 9 版本：
+[android_kernel_huawei_vtr_emui9_KernelSU](https://github.com/Coconutat/android_kernel_huawei_vtr_emui9_KernelSU)
+***
 特性：
  1. 基于原本的Proto Kernel的所有特性(除了Wireguard)。
  2. 支持KernelSU
