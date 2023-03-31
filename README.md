@@ -22,17 +22,19 @@
 ***   
 # 自行构建：  
 需求：  
- 1. Ubuntu 16.04 x86_64 / Ubuntu 20.04 x86_64  
+ + Ubuntu 16.04 x86_64 / Ubuntu 20.04 x86_64  
  > 注：Ubuntu 20.04 需要Python2，并软连接成Python。  
- 2. 8GB RAM[最低] / 16GB RAM[推荐]
- 3. 64GB 或更多 硬盘空间
- 4. 克隆本仓库，Proto文件夹是内核，gcc-linaro-5.5.0-2017.10-x86_64_aarch64-linux-gnu是交叉编译器，克隆命令：
+ + 8GB RAM[最低] / 16GB RAM[推荐]
+ + 64GB 或更多 硬盘空间
+ + 克隆本仓库，Proto文件夹是内核，gcc-linaro-5.5.0-2017.10-x86_64_aarch64-linux-gnu是交叉编译器，克隆命令：
  > `git clone https://github.com/Coconutat/android_kernel_huawei_vtr_KernelSU.git`  
- 1. 安装依赖：
+ + 安装依赖：
  > `sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git git-lfs gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev libelf-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev libwxgtk3.0-dev adb fastboot`  
  > 注：Ubuntu 20.04 不需要libwxgtk3.0-dev。
- 1. 在`Build_KSU.sh`脚本里填写好交叉编译器的路径。(内有注释, 交叉编译器在本仓库里提供。)
- 2. 开始编译，命令：`bash Build_KSU.sh`
+ + 同步KernelSU源码树：`bash synckernelsu.sh`
+> 注：本内核没有对KernelSU源代码进行修改。
+ + 在`Build_KSU.sh`脚本里填写好交叉编译器的路径。(内有注释, 交叉编译器在本仓库里提供。)
+ + 开始编译，命令：`bash Build_KSU.sh`
 ***
 # 缺点/求助，如果能有大佬对这些问题有能力修正，请不吝赐教，感激不尽。
 1. 不幸的是，这个内核不能切换SELinux的工作状态。如果切换就会导致KernelSU失效。所以我修改了/security/selinux/selinuxfs.c，在171行到174行添加了一些代码。
