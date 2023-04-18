@@ -43,10 +43,10 @@ if [ -f out/arch/arm64/boot/Image.gz ];
 then
 	echo "***Packing P10 version kernel...***"
 	tools/mkbootimg --kernel out/arch/arm64/boot/Image.gz --base 0x0 --cmdline "loglevel=4 initcall_debug=n page_tracker=on slub_min_objects=16 unmovable_isolate1=2:192M,3:224M,4:256M printktimer=0xfff0a000,0x534,0x538 androidboot.selinux=enforcing buildvariant=user" --tags_offset 0x07A00000 --kernel_offset 0x00080000 --ramdisk_offset 0x07c00000 --os_version 8.0.0 --os_patch_level 2018-01-01  --output Proto_V"$v"_8.0_P10.img
-	tools/mkbootimg --kernel out/arch/arm64/boot/Image.gz --base 0x0 --cmdline "loglevel=4 initcall_debug=n page_tracker=on slub_min_objects=16 unmovable_isolate1=2:192M,3:224M,4:256M printktimer=0xfff0a000,0x534,0x538 androidboot.selinux=permissive buildvariant=user" --tags_offset 0x07A00000 --kernel_offset 0x00080000 --ramdisk_offset 0x07c00000 --os_version 8.0.0 --os_patch_level 2018-01-01  --output Proto_V"$v"_8.0_P10.img
+	tools/mkbootimg --kernel out/arch/arm64/boot/Image.gz --base 0x0 --cmdline "loglevel=4 initcall_debug=n page_tracker=on slub_min_objects=16 unmovable_isolate1=2:192M,3:224M,4:256M printktimer=0xfff0a000,0x534,0x538 androidboot.selinux=permissive buildvariant=user" --tags_offset 0x07A00000 --kernel_offset 0x00080000 --ramdisk_offset 0x07c00000 --os_version 8.0.0 --os_patch_level 2018-01-01  --output Proto_V"$v"_8.0_P10_PM.img
 	cp out/arch/arm64/boot/Image.gz Image.gz
-	cd tools/Proto8_Anykernel
 	cp out/arch/arm64/boot/Image.gz tools/Proto8_Anykernel/Image.gz
+	cd tools/Proto8_Anykernel
 	zip -r9 P10_V"$v"_8.0_P10.zip * > /dev/null
 	cd ../..
 	mv tools/Proto8_Anykernel/P10_V"$v"_8.0_P10.zip Proto8_Huawei_Kernel_V"$v"_8.0_P10.zip

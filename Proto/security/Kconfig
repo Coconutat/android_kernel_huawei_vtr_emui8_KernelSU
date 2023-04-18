@@ -190,8 +190,6 @@ source security/tomoyo/Kconfig
 source security/apparmor/Kconfig
 source security/yama/Kconfig
 
-source security/integrity/Kconfig
-
 choice
 	prompt "Default security module"
 	default DEFAULT_SECURITY_SELINUX if SECURITY_SELINUX
@@ -229,10 +227,8 @@ config DEFAULT_SECURITY
 	default "apparmor" if DEFAULT_SECURITY_APPARMOR
 	default "" if DEFAULT_SECURITY_DAC
 
-source security/hwselinux/Kconfig
-source security/check_root/Kconfig
-source security/hw_root_scan/Kconfig
+
 source security/kernel_harden/Kconfig
-source security/hkip_atkinfo/Kconfig
+
 endmenu
 
