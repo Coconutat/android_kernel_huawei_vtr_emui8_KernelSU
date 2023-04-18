@@ -3,6 +3,11 @@
 ## EMUI 9 版本：
 [android_kernel_huawei_vtr_emui9_KernelSU](https://github.com/Coconutat/android_kernel_huawei_vtr_emui9_KernelSU)
 ***
+  
+#### 关于刷机的一些教程
+[Wiki](https://github.com/Coconutat/HuaweiP10-GSI-And-Modify-Tutorial/wiki)
+  
+  
 特性：
  1. 基于原本的Proto Kernel的所有特性(除了Wireguard)。
  2. 支持KernelSU
