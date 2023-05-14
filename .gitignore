@@ -1,6 +1,7 @@
-
-Proto/KernelSU
-Proto/out
-Proto//drivers/kernelsu
+out
+drivers/kernelsu
 .vscode
-logs.txt
+logs*.txt
+*.zip
+*.gz
+*.img
