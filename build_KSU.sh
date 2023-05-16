@@ -16,8 +16,7 @@ echo "***Setting environment...***"
 rm -rf out/arch/arm64/boot/Image.gz
 
 # 交叉编译器的路径
-export PATH=$PATH:/home/coconutat/Downloads/Github/android_kernel_huawei_vtr_KernelSU/gcc-linaro-5.5.0-2017.10-x86_64_aarch64-linux-gnu/bin
-
+export PATH=$PATH:/home/coconutat/Downloads/Github/android_kernel_huawei_vtr_emui8_KernelSU/gcc-linaro-5.5.0-2017.10-x86_64_aarch64-linux-gnu/bin
 export CROSS_COMPILE=aarch64-linux-gnu-
 export GCC_COLORS=auto
 export ARCH=arm64
