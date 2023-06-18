@@ -5,3 +5,4 @@ logs*.txt
 *.zip
 *.gz
 *.img
+kernel_log*.txt
