@@ -48,8 +48,7 @@
   > 目前通过TWRP刷zip格式的内核解决。  
   > 什么是GSI：[WIKI](https://github.com/phhusson/treble_experimentations/wiki/Frequently-Asked-Questions-%28FAQ%29)  
   > GSI镜像列表：[LIST](https://github.com/phhusson/treble_experimentations/wiki/Generic-System-Image-%28GSI%29-list)  
-4. ~~不支持模块功能，目前刷入模块无效。~~
-  > 修改hooks.c解决
+4. 不支持模块功能，目前刷入模块无效。
 ***
 # 创建者/贡献者：
 [JBolho](https://github.com/JBolho) / [Proto内核](https://github.com/JBolho/Proto)：提供了基础的内核。  
