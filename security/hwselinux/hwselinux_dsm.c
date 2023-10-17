@@ -23,12 +23,12 @@
 #include <chipset_common/log_usertype/log-usertype.h>
 
 /* for hisi & qcom */
-extern unsigned int runmode_is_factory(void);
+__maybe_unused extern unsigned int runmode_is_factory(void);
 
 /*
  * We only need this data after we have decided to send an audit message.
  */
-struct selinux_audit_data {
+__maybe_unused struct selinux_audit_data {
 	u32 ssid;
 	u32 tsid;
 	u16 tclass;
@@ -38,15 +38,15 @@ struct selinux_audit_data {
 	int result;
 };
 
-extern void audit_log_data(struct audit_buffer *ab, char **data);
+__maybe_unused extern void audit_log_data(struct audit_buffer *ab, char **data);
 
-extern void selinux_dsm_upload(struct audit_buffer *ab, struct common_audit_data *a);
+__maybe_unused extern void selinux_dsm_upload(struct audit_buffer *ab, struct common_audit_data *a);
 
-extern int get_selinux_client(struct dsm_client **dev);
+__maybe_unused extern int get_selinux_client(struct dsm_client **dev);
 
-static struct dsm_client *selinux_dsm_client;
+__maybe_unused static struct dsm_client *selinux_dsm_client;
 
-static void selinux_dsm_client_notify(const char *content)
+__maybe_unused static void selinux_dsm_client_notify(const char *content)
 {
 	if (selinux_dsm_client == NULL) {
 		get_selinux_client(&selinux_dsm_client);
@@ -59,8 +59,9 @@ static void selinux_dsm_client_notify(const char *content)
 	}
 }
 
-static char *selinux_black_list[] = {
-	"u:r:su:s0",
+__maybe_unused static char *selinux_black_list[] = {
+	/*
+ 	"u:r:su:s0",
 	"u:r:shell:s0",
 	"u:r:adbd:s0",
 	"module_request",
@@ -68,24 +69,29 @@ static char *selinux_black_list[] = {
 	"pool-3-thread-1",
 	"pool-3-thread-2",
 	"pool-3-thread-3",
-	"CallbackHandler",
+	"CallbackHandler",	
+	*/
 };
 
-static int selinux_dsm_filter_black_list(char *data)
+__maybe_unused static int selinux_dsm_filter_black_list(char *data)
 {
+	/*
 	int index = 0;
+	*/
 
 	/* filter black list */
+	/*
 	for (index = 0; index < sizeof(selinux_black_list)/sizeof(char *); index++) {
 		if (strstr(data, selinux_black_list[index]) != NULL) {
 			return -1;
 		}
 	}
+	*/
 
 	return 0;
 }
 
-struct audit_node {
+__maybe_unused struct audit_node {
 	struct list_head list;
 	u32 ssid;
 	u32 tsid;
@@ -94,11 +100,12 @@ struct audit_node {
 };
 
 #define AUDIT_NODE_MAX_NUMBER	(40)
-static unsigned int audit_node_number;
-static struct list_head audit_node_head = LIST_HEAD_INIT(audit_node_head);
+__maybe_unused static unsigned int audit_node_number;
+__maybe_unused static struct list_head audit_node_head = LIST_HEAD_INIT(audit_node_head);
 
-static int find_node_by_audit(struct list_head *head, u32 ssid, u32 tsid, u16 tclass, u32 audited)
+__maybe_unused static int find_node_by_audit(struct list_head *head, u32 ssid, u32 tsid, u16 tclass, u32 audited)
 {
+	/*
 	struct audit_node *node;
 	struct list_head *temp_head;
 
@@ -108,18 +115,25 @@ static int find_node_by_audit(struct list_head *head, u32 ssid, u32 tsid, u16 tc
 		if (node == NULL) {
 			return 0;
 		}
+		*/
 
-		if ((node->ssid == ssid) && (node->tsid == tsid) && (node->tclass == tclass) && (node->audited == audited)) {
-			/* find node by ssid & tsid & tclass &  audited */
-			return 0;
-		}
+		/*find node by ssid & tsid & tclass &  audited */
+		/*
+		* if ((node->ssid == ssid) && (node->tsid == tsid) && (node->tclass == tclass) && (node->audited == audited)) {
+			
+		*	 
+		*	return 0;
+		} 
 	}
+	*/
+	
 
 	return -1;
 }
 
-static int selinux_dsm_filter_audit_list(struct common_audit_data *a)
+__maybe_unused static int selinux_dsm_filter_audit_list(struct common_audit_data *a)
 {
+	/*
 	u32 ssid = a->selinux_audit_data->ssid;
 	u32 tsid = a->selinux_audit_data->tsid;
 	u16 tclass = a->selinux_audit_data->tclass;
@@ -127,8 +141,10 @@ static int selinux_dsm_filter_audit_list(struct common_audit_data *a)
 	u32 denied = a->selinux_audit_data->denied;
 
 	struct audit_node *node = NULL;
+	*/
 
 	/* avc granted don't upload dsm */
+	/*
 	if (denied == 0) {
 		return -1;
 	}
@@ -136,8 +152,10 @@ static int selinux_dsm_filter_audit_list(struct common_audit_data *a)
 	if (audit_node_number > AUDIT_NODE_MAX_NUMBER) {
 		return -1;
 	}
+	*/
 
 	/* return code is 0 when find node successfull */
+	/*
 	if (find_node_by_audit(&audit_node_head, ssid, tsid, tclass, audited) == 0) {
 		return -1;
 	}
@@ -153,23 +171,30 @@ static int selinux_dsm_filter_audit_list(struct common_audit_data *a)
 	node->tsid = tsid;
 	node->tclass = tclass;
 	node->audited = audited;
+	*/
 
 	/* save a new audit node */
+	/*
 	INIT_LIST_HEAD(&node->list);
 	list_add_tail(&node->list, &audit_node_head);
 
 	audit_node_number++;
+	/*
 
 	/* every 4 times we can upload dsm */
+	/*
 	if ((audit_node_number % 4) == 0) {
 		return 0;
 	} else {
 		return -1;
 	}
+	*/
+	return 0;
 }
 
-void selinux_dsm_upload(struct audit_buffer *ab, struct common_audit_data *a)
+__maybe_unused void selinux_dsm_upload(struct audit_buffer *ab, struct common_audit_data *a)
 {
+	/*
 	char *data = NULL;
 
 	unsigned int type = get_logusertype_flag();
@@ -193,4 +218,6 @@ void selinux_dsm_upload(struct audit_buffer *ab, struct common_audit_data *a)
 	}
 
 	selinux_dsm_client_notify(data);
+	*/
+	return 0;
 }

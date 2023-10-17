@@ -39,7 +39,7 @@ start_time_sum=$(date +%s)
 #构建P10部分
 echo "***Building for P10 version...***"
 make ARCH=arm64 O=out $EV Proto_P10_KSU_reg_defconfig
-make ARCH=arm64 O=out $EV -j128  2>&1 | tee kernel_log-${start_time}.txt
+make ARCH=arm64 O=out $EV -j12  2>&1 | tee kernel_log-${start_time}.txt
 
 end_time_sum=$(date +%s)
 
