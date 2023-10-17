@@ -11,13 +11,11 @@
 特性：
  1. 基于原本的Proto Kernel的所有特性(除了Wireguard)。
  2. 支持KernelSU
- 3. 不能切换SELinux为强制模式。(强制为宽容模式。)
- 4. 完全屏蔽华为内核级别ROOT检查和扫描。 
- 5. 激活了PTRACE特性。  
+ 3. 完全屏蔽华为内核级别ROOT检查和扫描。 
+ 4. 激活了PTRACE特性。  
 ***  
 # 下载：  
-[Github Release](https://github.com/Coconutat/android_kernel_huawei_vtr_KernelSU/releases/)  
-包含TWRP，自定义内核和原始内核。  
+[Github Release](https://github.com/Coconutat/android_kernel_huawei_vtr_KernelSU/releases/)    
 ***  
 # 刷写：  
  1. 刷入TWRP：`fastboot flash recovery_ramdisk huawei-vtr-al00-em8_0-twrp3.2.1-7to-recovery-8.5.25.img` 
@@ -42,14 +40,16 @@
  + 开始编译，命令：`bash Build_KSU.sh`
 ***
 # 缺点/求助，如果能有大佬对这些问题有能力修正，请不吝赐教，感激不尽。
-1. 不幸的是，这个内核不能切换SELinux的工作状态。如果切换就会导致KernelSU失效。所以我修改了/security/selinux/selinuxfs.c，在171行到174行添加了一些代码。
+1. ~~不幸的是，这个内核不能切换SELinux的工作状态。如果切换就会导致KernelSU失效。所以我修改了/security/selinux/selinuxfs.c，在171行到174行添加了一些代码。~~  
+  > KernelSU v0.6.9开始支持安卓9以下。 
 2. ~~SD卡无法读取，该说这个通用的问题么？我编译官方内核也是读取不了SD卡。刷回华为OTA包里就可以。~~  
   > 目前通过TWRP刷zip格式的内核解决。  
 3. ~~GSI镜像将不再可用。不知为何，以前支持能开机可用的GSI系统也无法开机了，只能用原本的系统。~~
   > 目前通过TWRP刷zip格式的内核解决。  
   > 什么是GSI：[WIKI](https://github.com/phhusson/treble_experimentations/wiki/Frequently-Asked-Questions-%28FAQ%29)  
   > GSI镜像列表：[LIST](https://github.com/phhusson/treble_experimentations/wiki/Generic-System-Image-%28GSI%29-list)  
-4. 不支持模块功能，目前刷入模块无效。
+4. ~~不支持模块功能，目前刷入模块无效。~~
+  > 修改hooks.c解决
 ***
 # 创建者/贡献者：
 [JBolho](https://github.com/JBolho) / [Proto内核](https://github.com/JBolho/Proto)：提供了基础的内核。  

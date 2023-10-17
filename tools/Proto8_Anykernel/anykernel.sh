@@ -32,7 +32,7 @@ ui_print "    The rest of the Dream Team:     ";
 ui_print "   elkatronix / ytgbg / khaberz     ";
 ui_print "                                    ";
 ui_print "   Honor 9 and P10/P10+ certified   ";
-ui_print "                                    ";
+ui_print "    KernelSU Support by Coconutat   ";
 
 # shell variables
 block=/dev/block/bootdevice/by-name/kernel;
